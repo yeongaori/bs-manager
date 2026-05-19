@@ -9,7 +9,6 @@ import { LaunchModToogle } from "./launch-mod-toogle.component";
 import BSLogo from "../../../../../../assets/images/apngs/bs-logo.png";
 import { BsmImage } from "renderer/components/shared/bsm-image.component";
 import { useService } from "renderer/hooks/use-service.hook";
-import { BsStore } from "shared/models/bs-store.enum";
 import { lastValueFrom } from "rxjs";
 import { BsDownloaderService } from "renderer/services/bs-version-download/bs-downloader.service";
 import equal from "fast-deep-equal";
@@ -189,7 +188,6 @@ export function LaunchSlide({ version }: Props) {
                 label: t("pages.version-viewer.launch-mods.oculus"),
                 description: t("pages.version-viewer.launch-mods.oculus-description"),
                 active: activeLaunchMods.includes(LaunchMods.OCULUS),
-                visible: !(version.metadata?.store === BsStore.OCULUS),
                 pinned: pinnedLaunchMods.includes(LaunchMods.OCULUS),
                 onChange: (checked) => toggleActiveLaunchMod(checked, LaunchMods.OCULUS),
                 onPinChange: (pinned) => togglePinnedLaunchMod(pinned, LaunchMods.OCULUS),
